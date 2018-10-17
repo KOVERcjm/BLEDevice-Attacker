@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Bluetooth Devices Attack Demo</string>
+    <string name="choose_device">Choose Target Device</string>
+    <string name="attack_result">Target Device Attack Result</string>
+</resources>
