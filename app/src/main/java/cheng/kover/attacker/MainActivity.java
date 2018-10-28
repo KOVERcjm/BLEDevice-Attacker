@@ -24,6 +24,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -120,8 +121,26 @@ public class MainActivity extends AppCompatActivity
 					BluetoothLeScanner bluetoothLeScanner = bluetoothAdapter.getBluetoothLeScanner();
 					bluetoothLeScanner.stopScan(scanCallback);
 
-					Log.d(TAG, "Attack on chosen device: " + deviceItem);
-					bleDeviceAttacker.attack(bluetoothDevices.get(deviceItem));
+					RadioGroup radioGroup = findViewById(R.id.mode_chosen);
+					switch (radioGroup.getCheckedRadioButtonId())
+					{
+						case R.id.attacker_mode:
+							Log.d(TAG, "Attack on chosen device: " + deviceItem);
+							((TextView)findViewById(R.id.device_chosen)).setText("Attack on " + deviceItem);
+							bleDeviceAttacker.attack(bluetoothDevices.get(deviceItem));
+							findViewById(R.id.attackResult).setVisibility(View.VISIBLE);
+							findViewById(R.id.bluetoothDevicesList).setVisibility(View.GONE);
+							break;
+						case R.id.observer_mode:
+							Log.d(TAG, "Observe on chosen device: " + deviceItem);
+							((TextView)findViewById(R.id.device_chosen)).setText("Observe on " + deviceItem);
+							bleDeviceAttacker.observation(bluetoothDevices.get(deviceItem));
+							findViewById(R.id.observation).setVisibility(View.VISIBLE);
+							findViewById(R.id.bluetoothDevicesList).setVisibility(View.GONE);
+							break;
+						default:
+							Log.e(TAG, "Radio group return: " + radioGroup.getCheckedRadioButtonId());
+					}
 				}
 			}
 		});
