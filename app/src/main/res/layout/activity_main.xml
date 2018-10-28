@@ -8,29 +8,61 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/device_chosen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:text="@string/choose_device"
             android:textSize="20sp" />
 
-        <ListView
-            android:id="@+id/bluetoothDevicesList"
+        <RadioGroup
+            android:id="@+id/mode_chosen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="15dp" />
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <RadioButton
+                android:id="@+id/observer_mode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="@string/observer"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/attacker_mode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/attacker"
+                android:textSize="15sp" />
+        </RadioGroup>
+
+
     </LinearLayout>
 
-    <RelativeLayout
+    <ListView
+        android:id="@+id/bluetoothDevicesList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:padding="15dp"/>
+
+    <LinearLayout
+        android:id="@+id/attackResult"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="visible">
 
         <TextView
             android:id="@+id/attackResultTitle"
@@ -40,13 +72,164 @@
             android:text="@string/attack_result"
             android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/attackResult"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/attackResultTitle"
-            android:padding="15dp"
-            android:textSize="15sp"/>
-    </RelativeLayout>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
 
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:paddingLeft="15dp"
+                android:text="@string/real_time_steps_attacker"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/realTimeSteps_attacker"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:paddingRight="15dp"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:paddingLeft="15dp"
+                android:text="@string/motion_sensor_data"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/motionSensorData"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:paddingRight="15dp"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:paddingLeft="15dp"
+                android:text="@string/activity_data"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/activityData"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:paddingRight="15dp"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/observation"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/observationTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/observation"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:paddingLeft="15dp"
+                android:text="@string/device_name"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/device_name"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:paddingRight="15dp"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:paddingLeft="15dp"
+                android:text="@string/real_time_steps_observer"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/realTimeSteps_observer"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:paddingRight="15dp"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:paddingLeft="15dp"
+                android:text="@string/available_gatt"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/gatt_service"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:scrollbars="vertical"
+                android:paddingRight="15dp"
+                android:textSize="15sp"
+                android:maxLines="22"
+                android:singleLine="false"/>
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

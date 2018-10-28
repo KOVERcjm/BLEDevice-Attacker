@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">Bluetooth Devices Attack Demo</string>
+    <string name="observer">Observer Mode</string>
+    <string name="attacker">Attacker Mode</string>
     <string name="choose_device">Choose Target Device</string>
     <string name="attack_result">Target Device Attack Result</string>
+    <string name="real_time_steps_attacker">Real time steps: </string>
+    <string name="motion_sensor_data">Motion sensor data from accelerometer: </string>
+    <string name="activity_data">History activity: </string>
+    <string name="observation">Observation result</string>
+    <string name="device_name">Device Name: </string>
+    <string name="real_time_steps_observer">Real time steps: </string>
+    <string name="available_gatt">Available GATT services: </string>
 </resources>

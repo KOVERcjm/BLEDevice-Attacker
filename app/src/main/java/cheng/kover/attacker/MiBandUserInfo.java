@@ -96,7 +96,7 @@ class MiBandUserInfo
 		bf.put((byte) (height & 0xff));
 		bf.put((byte) (weight & 0xff));
 		bf.put((byte) (type & 0xff));
-		bf.put((byte) 4);
+		bf.put((byte) 5);
 		bf.put((byte) 0);
 
 		if (aliasBytes.length < 8)
