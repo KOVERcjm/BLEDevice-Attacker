@@ -225,11 +225,11 @@ public class BLEDeviceAttacker
 						for (BluetoothGattService bluetoothGattService : bluetoothGatt.getServices())
 						{
 							Log.d(TAG + "GIWA", " - Service: " + bluetoothGattService.getUuid());
-							gattString.append("Service: " + bluetoothGattService.getUuid() + "\r\n");
+							gattString.append("Service: " + bluetoothGattService.getUuid().toString().substring(4, 8) + "\r\n");
 							for (BluetoothGattCharacteristic bluetoothGattCharacteristic : bluetoothGattService.getCharacteristics())
 							{
 								Log.d(TAG + "GIWA", " -- Characteristic: " + bluetoothGattCharacteristic.getUuid());
-								gattString.append("---Characteristic: " + bluetoothGattCharacteristic.getUuid() + "\r\n");
+								gattString.append("---Characteristic: " + bluetoothGattCharacteristic.getUuid().toString().substring(4, 8) + "\r\n");
 							}
 						}
 						((TextView) activity.findViewById(R.id.gatt_service)).setMovementMethod(ScrollingMovementMethod.getInstance());
@@ -313,7 +313,9 @@ public class BLEDeviceAttacker
 						delay();
 						setNotify(MiBandProfile.UUID_CHAR_SENSOR_DATA);
 						delay();
-						// ?
+
+						((TextView) activity.findViewById(R.id.activityData)).setMovementMethod(ScrollingMovementMethod.getInstance());
+						// Get activities
 						writeCharacteristic(MiBandProfile.UUID_SERVICE_MILI, MiBandProfile.UUID_CHAR_CONTROL_POINT, new byte[] {6});
 						delay();
 						readCharacteristic(MiBandProfile.UUID_SERVICE_MILI, MiBandProfile.UUID_CHAR_ACTIVITY_DATA);
